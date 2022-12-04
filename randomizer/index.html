@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="sv">
+    <head>
+        <title>
+            Mickes slumpgenerator
+        </title>
+    </head>
+
+    <body>
+        <p>
+            <h3>
+                Vem ska?
+            </h3>
+            Här kan man välja vem som ska göra något.
+            <form>
+                <label for="first">Första personen</label><br>
+                <input type="text" id="first" name="first" value="Eleverna i 8C"><br>
+                <label for="second">Andra personen</label><br>
+                <input type="text" id="second" name="second" value="Micke"><br><br>
+                
+                <label for="second">Vad ska göras?</label><br>
+                <input type="text" id="do" name="do" value="göra det tunga jobbet"><br><br>
+                <input type="button" value="Submit" onclick="displayWhoWill()">
+            </form> 
+        </p>
+
+        <p id="result"></p>
+        <p id="nummer"></p>
+    </body>
+    <script>
+        function rndInt() {
+    return Math.floor(Math.random() * 2);
+}
+
+var nummer = 0;
+
+function whoWill() {
+    if (rndInt() == 0) {
+        nummer = 1;
+        return document.getElementById("first").value;
+    }
+    nummer = 2
+    return document.getElementById("second").value;
+}
+
+function whatToDo() {
+    return document.getElementById("do").value;
+}
+
+var result = "";
+
+function displayWhoWill() {   
+    result = "Resultat: " + whoWill() + " ska " + whatToDo();
+    document.getElementById("result").innerHTML = result;
+    document.getElementById("nummer").innerHTML += nummer + "\n";
+}
+    </script>
+</html>
